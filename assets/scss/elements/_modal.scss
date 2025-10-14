@@ -1,0 +1,27 @@
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 801px;
+        margin: 1.75rem auto;
+    }
+}
+
+.modal-get-demo {
+    .modal-content {
+        background-color: transparent !important;
+        border: none;
+    }
+
+    .modal-header {
+        border: none !important;
+
+        button {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(26deg) brightness(106%) contrast(101%);
+        }
+    }
+}
+
+body {
+    &.modal-open {
+        padding-right: 0 !important;
+    }
+}

@@ -1,0 +1,196 @@
+// faq area start
+.rts-faq-area-1 {
+    .question-and-answer-area {
+        max-width: 870px;
+        margin: auto;
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 1px solid #DCDCDC;
+            border-radius: 40px;
+            overflow: hidden;
+
+            .accordion-header {
+                border: none;
+                box-shadow: none;
+
+                button {
+                    padding: 30px 50px;
+                    font-size: 23px;
+                    border: none;
+                    box-shadow: none;
+                    font-weight: 600;
+
+                    @media #{$large-mobile} {
+                        padding: 30px 30px;
+                    }
+
+                    &::after {
+                        background-image: none;
+                        content: '\f078';
+                        font-family: var(--font-3);
+                    }
+
+                    &[aria-expanded="true"] {
+                        background: var(--color-primary);
+                        color: #fff;
+
+                        &::after {
+                            background-image: none;
+                            content: '\f078';
+                            font-family: var(--font-3);
+                        }
+                    }
+                }
+            }
+
+            .accordion-collapse {
+                &.show {
+                    background: var(--color-primary);
+                    color: #EBEBEB;
+                }
+            }
+
+            .accordion-body {
+                padding: 0 40px 40px 50px;
+                transition: 0s;
+                background: var(--color-primary);
+                color: #fff;
+
+                @media #{$large-mobile} {
+                    padding: 0 30px 20px 30px;
+                }
+            }
+        }
+    }
+}
+
+
+.rts-faq-area-1 {
+    p {
+        max-width: 55%;
+        margin: auto;
+    }
+}
+
+
+.accordion-area-main-wrapper {
+    .accordion {
+        .accordion-item {
+            background: #fff;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border: none;
+
+            .accordion-header {
+                border: none;
+                box-shadow: none;
+
+                button {
+                    padding: 25px 25px;
+                    background: #fff;
+                    border: none;
+                    box-shadow: none;
+                    font-size: 18px;
+                    font-weight: 600;
+
+                    &[aria-expanded="true"] {
+                        color: #0F2552;
+                    }
+                }
+            }
+
+            .accordion-body {
+                padding: 0 25px 15px 25px;
+            }
+        }
+    }
+}
+
+.faq-thumbnail-right-area-1 {
+    margin-right: -150px;
+    margin-left: 150px;
+
+    @media #{$mdsm-layout} {
+        margin: 0 !important;
+    }
+}
+
+.rts-cta-area-wrapper-2 {
+    background-image: url(../images/cta/01.jpg);
+}
+
+
+.cta-1-wrapper {
+    text-align: center;
+
+    .title {
+        color: #FFFFFF;
+        font-size: 90px;
+
+        @media #{$mdsm-layout} {
+            font-size: 60px;
+        }
+
+        @media #{$large-mobile} {
+            font-size: 42px;
+
+            br {
+                display: none;
+            }
+        }
+    }
+
+    p.disc {
+        max-width: 25%;
+        margin: auto;
+        color: #E2E2E2;
+
+        @media #{$mdsm-layout} {
+            max-width: 98%;
+        }
+    }
+
+    .button-wrapper {
+        justify-content: center;
+        margin-top: 50px;
+
+        @media #{$large-mobile} {
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            color: #5822C6;
+
+            &::after {
+                background: #fff;
+            }
+
+            &:hover {
+                border: 1px solid #fff !important;
+                border-color: #fff;
+                color: #fff !important;
+            }
+        }
+
+        .btn-border {
+            border: 1px solid #AC83FF !important;
+            color: #fff !important;
+        }
+    }
+}
+
+.faq-left-area-start {
+    .title {
+        font-size: 60px;
+
+        @media #{$sm-layout} {
+            font-size: 32px;
+
+            br {
+                display: none;
+            }
+        }
+    }
+}

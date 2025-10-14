@@ -1,0 +1,51 @@
+.error-page-wrapper-main {
+    position: relative;
+
+    img.large {
+        margin-left: -90px;
+
+        @media #{$sm-layout} {
+            margin-left: -90px;
+            margin-bottom: 226px;
+        }
+
+        @media #{$large-mobile} {
+            margin-left: -90px;
+            margin-bottom: 256px;
+            margin-left: -90px;
+            margin-bottom: 20px;
+
+        }
+    }
+
+    img.speen {
+        animation: rotateIt 3s linear infinite;
+        top: 8%;
+        right: 17%;
+        position: absolute;
+    }
+
+    .inner-content {
+        position: absolute;
+        bottom: 30px;
+        text-align: center;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media #{$md-layout} {
+            bottom: -50px;
+        }
+
+        @media #{$large-mobile} {
+            position: relative;
+        }
+
+        a.rts-btn {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin: auto;
+        }
+    }
+}

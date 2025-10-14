@@ -1,0 +1,25 @@
+// brand area start]
+.brand-area-main-wrapper {
+    text-align: center;
+    .brand-title{
+        color: #FFFFFF;
+        font-size: 25px;
+        font-weight: 400;
+        font-family: var(--font-secondary);
+    }
+}
+
+.bg_dark-1 {
+    background: #350C5E;
+}
+
+.brand-1-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$smlg-device} {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+}

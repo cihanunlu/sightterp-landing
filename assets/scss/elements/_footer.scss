@@ -1,0 +1,215 @@
+// footer style here
+.footer-bg {
+    background: #140718;
+}
+
+.radious-top-left-right {
+    border-radius: 0;
+}
+
+.rts-social-border-area {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        li {
+            margin: 0;
+            padding: 0;
+
+            a {
+                height: 39px;
+                width: 39px;
+                border: 1px solid rgba(255, 255, 255, 0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: .3s;
+
+                &:hover {
+                    background: var(--color-primary);
+                    border-color: var(--color-primary);
+                    transform: translateY(-5px);
+                }
+
+                i {
+                    color: #fff;
+
+                }
+            }
+        }
+    }
+}
+
+.usefull-link-wrapper-footer {
+    .title {
+        color: #FFFFFF;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .list-link {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 0;
+                padding: 0;
+
+                a {
+                    padding: 5px 0;
+                    display: block;
+                    color: #EBEBEB;
+                    transition: .3s;
+
+                    &:hover {
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
+
+        form {
+            position: relative;
+
+            .input-wrapper {
+                position: relative;
+                margin-top: 18px;
+
+                input {
+                    height: 65px;
+                    border: 1px solid #6E6472;
+                    border-radius: 60px;
+                    padding-left: 50px;
+
+                    &:focus {
+                        border: 1px solid var(--color-primary);
+                        color: #fff;
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    left: 16px;
+                    top: 50%;
+                    font-size: 20px;
+                    color: #fff;
+                    transform: translateY(-50%);
+                }
+            }
+
+            button {
+                height: 50px;
+                width: 50px;
+                position: absolute;
+                border-radius: 50%;
+                color: #fff;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                background: #5822C6;
+                border: none;
+                color: #fff;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.copyright-area {
+
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid #2b1e527a;
+    justify-content: space-between;
+
+    @media #{$sm-layout} {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        @media #{$large-mobile} {
+            flex-direction: column;
+        }
+
+        .store {
+            border-radius: 50px;
+            border: 1px solid rgba(85, 80, 111, 1);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+        }
+    }
+}
+
+
+
+
+.contact-info-wrapper {
+    .single-contact-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            i {
+                color: #fff;
+            }
+        }
+
+        .information {
+            .title {
+                font-size: 16px;
+                margin-bottom: 5px;
+                color: #fff;
+            }
+
+            a {
+                color: #fff;
+                font-size: 16px;
+                font-weight: 400;
+                transition: .3s;
+
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+}

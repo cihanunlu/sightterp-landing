@@ -1,0 +1,135 @@
+.header-main-wrapper-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.header-one {
+    position: absolute;
+    max-width: 1600px;
+    z-index: 10;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 80px;
+    background: #fff;
+    padding: 0 60px;
+    top: 25px;
+
+    @media #{$laptop-device} {
+        width: 97%;
+    }
+
+    @media #{$smlg-device} {
+        width: 97%;
+    }
+
+    @media #{$mdsm-layout} {
+        padding: 10px 25px;
+    }
+
+    .logo-nav-area {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &.sticky {
+        max-width: 1600px;
+        z-index: 10;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.header-action-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .rts-btn {
+        min-width: 132px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .search,
+    .cart {
+        cursor: pointer;
+    }
+}
+
+.g-10 {
+    column-gap: 10px;
+}
+
+.g-25 {
+    column-gap: 25px;
+}
+
+.g-15 {
+    column-gap: 15px;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media #{$large-mobile} {
+        .rts-btn {
+            display: none;
+        }
+    }
+}
+
+header {
+    @media #{$mdsm-layout} {
+        padding: 20px 0;
+    }
+
+    .rts-btn {
+        @media #{$large-mobile} {
+            display: none !important;
+        }
+    }
+
+    .menu-btn {
+        display: none;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        align-items: center;
+        justify-content: center;
+
+        @media #{$smlg-device} {
+            display: flex;
+        }
+
+        svg {
+            rect {
+                fill: #272a6c;
+            }
+        }
+    }
+}
+
+
+header.header-one.bg-white {
+    li {
+        a {
+            color: #272a6c;
+        }
+    }
+
+    .btn-primary {
+        &:hover {
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary) !important;
+        }
+    }
+}

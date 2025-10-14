@@ -1,0 +1,39 @@
+// container area start
+.container-75 {
+    max-width: 1780px;
+    margin: auto;
+}
+
+
+.product-feature-oppertunitu-wrapper {
+    background: #4318FF;
+    border-radius: 60px;
+    padding-bottom: 350px !important;
+
+    .title {
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.mt-dec-feature {
+    margin-top: -350px;
+}
+
+.single-service-feature {
+    a {
+        display: block;
+        overflow: hidden;
+        border-radius: 60px;
+
+        img {
+            transition: .3s;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+}

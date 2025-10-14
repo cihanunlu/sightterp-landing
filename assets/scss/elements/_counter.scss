@@ -1,0 +1,73 @@
+// counter style
+
+.increase-counter-area {
+    .rts-counter-up-area {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @media #{$sm-layout} {
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .single-counter-up {
+            flex-basis: 33%;
+        }
+
+        h3 {
+            font-size: 80px;
+            background: transparent;
+            color: #555BFF;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+
+            @media #{$sm-layout} {
+                font-size: 60px;
+                margin-bottom: 15px;
+            }
+
+            @media #{$large-mobile} {
+                font-size: 32px;
+            }
+
+            .counter {
+                margin-bottom: 0;
+                color: #555BFF;
+                font-size: 80px;
+                background: transparent;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                word-break: keep-all;
+
+                @media #{$sm-layout} {
+                    font-size: 60px;
+                    margin-bottom: 15px;
+                }
+
+                @media #{$large-mobile} {
+                    font-size: 40px;
+                }
+
+            }
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            color: #555555;
+            font-size: 18px;
+        }
+    }
+}
+
+.container-full {
+    max-width: 1920px;
+    margin: auto;
+}
+
+.bg-blue {
+    background: #555BFF;
+}

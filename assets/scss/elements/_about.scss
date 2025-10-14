@@ -1,0 +1,110 @@
+.banner-area-main-content-abvout {
+    max-width: 85%;
+
+    .bottom-check-area {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        justify-content: flex-start;
+        @media #{$md-layout} {
+            margin-top: 20px;
+        }
+        @media #{$sm-layout} {
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+        .singl
+        e-check {
+            display: flex;
+            align-items: 
+            mb15
+            center;
+            gap: 10px;
+
+            span {
+                color: #2B1B4A;
+                font-weight: 400;
+            }
+        }
+    }
+
+    p.disc {
+        max-width: 80%;
+    }
+}
+
+.bg_gradient-red {
+    background: linear-gradient(113.39deg, #1D42C7 -0.9%, #D111A7 100%);
+}
+
+.call-to-action-main-wrapper-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$sm-layout} {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .title {
+        color: #fff;
+        font-size: 55px;
+        line-height: 1.3;
+        @media #{$smlg-device} {
+            font-size: 44px;
+        }
+        @media #{$md-layout} {
+            font-size: 44px;
+        }
+        @media #{$sm-layout} {
+            font-size: 36px;
+        }
+        @media #{$large-mobile} {
+            font-size: 28px;
+        }
+    }
+
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .btn-primary {
+            background: #FFFFFF;
+            color: #FA2121;
+            font-weight: 600;
+            border: 2px solid #fff !important;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        .rts-btn.btn-border {
+            border-width: 2px;
+            color: #fff;
+            font-weight: 600;
+
+            &:hover {
+                border: 2px solid #fff;
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+
+.about-page {
+    .feature-area-right {
+        .rts-btn {
+            &:hover {
+                color: #FA2121;
+                border: 1px solid #FA2121 !important;
+            }
+        }
+    }
+}

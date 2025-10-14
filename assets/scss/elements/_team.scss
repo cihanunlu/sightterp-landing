@@ -1,0 +1,61 @@
+// team style hear
+
+.single-team-style-one {
+    position: relative;
+    overflow: hidden;
+
+    .team-bottom-area {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        background: #FFFFFF;
+        padding: 20px 28px 15px 28px;
+        border-radius: 20px 20px 0 0;
+        width: 190px;
+        bottom: -50px;
+        transition: .3s;
+
+        .name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0F2552;
+            margin: 0;
+        }
+
+        p.desig {
+            color: #555555;
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .social-team {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            gap: 18px;
+            padding: 0;
+
+            li {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    &:hover {
+        .team-bottom-area {
+            bottom: 0;
+        }
+    }
+}
+
+
+.mb_dec-footer {
+    margin-bottom: -200px;
+}

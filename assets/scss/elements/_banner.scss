@@ -1,0 +1,92 @@
+// bannner style here
+
+.rts-banner-area-wrapper-1 {
+    background: #F5F1FF;
+
+
+    .pre-title {
+        background: #E4EAFF;
+        padding: 5px 15px;
+        display: block;
+        max-width: max-content;
+        border-radius: 33px;
+        color: #6680FF;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-size: 94px;
+
+        @media #{$laptop-device} {
+            font-size: 70px;
+        }
+
+        @media #{$smlg-device} {
+            font-size: 60px;
+        }
+
+        @media #{$mdsm-layout} {
+            font-size: 45px;
+
+            br {
+                display: none;
+            }
+        }
+
+        @media #{$large-mobile} {
+            font-size: 36px;
+        }
+
+        span {
+            color: #5822C6;
+        }
+    }
+}
+
+.banne-area-inner-content-wrapper {
+    @media #{$mdsm-layout} {
+        padding: 0 15px;
+    }
+}
+
+.banner-right-image-thumbnail {
+    margin-right: -100px;
+    margin-left: 70px;
+
+    @media #{$smlg-device} {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.rts-banner-area-wrapper-1 {
+    position: relative;
+    z-index: 1;
+
+    .one {
+        position: absolute;
+        left: 100px;
+        top: 18%;
+        animation: shake-2 25s linear infinite;
+        z-index: -1;
+
+        @media #{$mdsm-layout} {
+            right: 100px;
+            top: 10%;
+            left: auto;
+        }
+
+        @media #{$large-mobile} {
+            top: 50%;
+        }
+    }
+
+    .two {
+        position: absolute;
+        left: -20px;
+        bottom: 10%;
+        animation: shake-2 30s linear infinite;
+    }
+}

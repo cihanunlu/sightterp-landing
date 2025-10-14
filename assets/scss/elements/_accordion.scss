@@ -1,0 +1,72 @@
+// accordion area start
+
+.custom-accordion {
+    .accordion-item {
+        background: #f5f5f5;
+        border-radius: 30px;
+        margin-bottom: 10px;
+        border: none;
+        box-shadow: none;
+        border: 2px solid #fff;
+
+        .accordion-header {
+            background: #fff;
+            border-radius: 30px;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+
+            button {
+                background: transparent;
+                font-size: 25px;
+                border-radius: 30px !important;
+                padding: 16px 25px;
+                border: none;
+                box-shadow: none;
+                color: #350C5D;
+
+                &::after {
+                    display: none;
+                }
+
+                &::before {
+                    content: '';
+                    right: 15px;
+                    background-image: url(../images/feature/04.svg);
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 13px;
+                    width: 30px;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                }
+
+                &:focus {
+                    border: none;
+                    box-shadow: none;
+                }
+                &[aria-expanded="true"]{
+                    &::before {
+                        background-image: url(../images/feature/05.svg);
+                    }
+                }
+            }
+        }
+
+        .accordion-body {
+            padding: 0 25px 20px 25px;
+        }
+    }
+
+    .btn-primary {
+        background: linear-gradient(113.39deg, #FA2121 -0.9%, #B413ED 100%);
+        ;
+        border: 1px solid transparent;
+
+        &:hover {
+            background: transparent;
+            border: 1px solid #FA2121;
+            color: #FA2121;
+        }
+    }
+}
