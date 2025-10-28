@@ -121,10 +121,10 @@
               $(".pricing__toogle").change(function () {
                 if ($(this).is(":checked")) {
                   $(".monthly__pricing").removeClass("active");
-                  $(".yearly__pricing").addClass("active");
+                  $(".credits__pricing").addClass("active");
                 } else {
                   $(".monthly__pricing").addClass("active");
-                  $(".yearly__pricing").removeClass("active");
+                  $(".credits__pricing").removeClass("active");
                 }
               });
             });

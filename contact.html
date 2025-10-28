@@ -9,6 +9,17 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
     <link rel="stylesheet preload" href="assets/css/plugins/plugins.css" as="style">
     <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+    <style>
+        /* Success modal theming */
+        #submissionSuccessModal .modal-content { 
+            border-radius: 16px; 
+        }
+        /* Darker, slightly more opaque backdrop in line with #1F1F25 theme */
+        .modal-backdrop.show { 
+            background-color: #1F1F25; 
+            opacity: 0.65; 
+        }
+    </style>
 </head>
 
 <body>
@@ -29,6 +40,8 @@
                                     <li><a href="about.html">About</a> </li>
                                     <li><a href="feature.html">Features</a> </li>
                                     <li><a href="pricing.html">Pricing </a> </li>
+                                    <li><a href="setup-guide.html">Setup Guide</a> </li>
+                                    <li><a href="faq.html">FAQ</a> </li>
                                     <li><a href="contact.html">Contact</a> </li>
                                 </ul>
                             </div>
@@ -64,7 +77,7 @@
                 <div class="col-lg-12 pt--50 pt_sm--80">
                     <div class="breadcrumb-main-wrapper">
                         <h1 class="title">Contact</h1>
-                        <p class="disc">At Hive, we understand that managing a business efficiently requires seamless coordination and streamlined processes. That's why we've developed.</p>
+                        <p class="disc">Have questions or want a demo? Send us a message and our team will get back to you shortly.</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +89,11 @@
     <div class="rts-section-gapBottom rts-contact-area">
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" class="contact-form-area-start">
+                <form id="contactForm" class="contact-form-area-start" action="https://formsubmit.co/contact@sightterp.com" method="POST">
+                    <input type="hidden" name="_next" value="http://localhost:5500/contact.html?sent=1">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="contact-input-half-wrapper">
                         <div class="single-input">
                             <label for="name">Fast Name</label>
@@ -107,29 +124,36 @@
 
     <script>
         (function () {
-            var form = document.getElementById('contactForm');
-            if (!form) return;
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                var formData = new FormData(form);
-                var data = {};
-                formData.forEach(function (value, key) { data[key] = value; });
-
-                fetch('/api/send-email', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                }).then(function (resp) {
-                    if (resp && resp.ok) {
-                        window.location.href = '/contact.html?sent=1';
-                    } else {
-                        alert('Message failed. Please try again.');
+            function showSuccessModalIfNeeded() {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('sent') === '1') {
+                    var modalEl = document.getElementById('submissionSuccessModal');
+                    if (modalEl) {
+                        try {
+                            if (window.bootstrap && window.bootstrap.Modal) {
+                                var modal = new window.bootstrap.Modal(modalEl);
+                                modal.show();
+                            } else if (window.$ && typeof window.$.fn.modal === 'function') {
+                                window.$(modalEl).modal('show');
+                            } else {
+                                modalEl.style.display = 'block';
+                                modalEl.classList.add('show');
+                            }
+                        } catch (e) {
+                            modalEl.style.display = 'block';
+                            modalEl.classList.add('show');
+                        }
                     }
-                }).catch(function () {
-                    alert('Network error. Please try again.');
-                });
-            });
+                    var url = new URL(window.location.href);
+                    url.searchParams.delete('sent');
+                    window.history.replaceState({}, document.title, url.toString());
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', showSuccessModalIfNeeded);
+            } else {
+                showSuccessModalIfNeeded();
+            }
         })();
     </script>
 
@@ -138,32 +162,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="contact-infromation-wrapper">
+                    <div class="contact-infromation-wrapper" style="display: flex; justify-content: center;">
                         <div class="single-contact-information-area">
                             <div class="icon">
                                 <i class="fa-regular fa-envelope"></i>
                             </div>
                             <div class="information">
                                 <h6 class="name">Email</h6>
-                                <a href="#">info@yourmail.com</a>
-                            </div>
-                        </div>
-                        <div class="single-contact-information-area">
-                            <div class="icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="information">
-                                <h6 class="name">Phone</h6>
-                                <a href="#">(000) 123 456 7899</a>
-                            </div>
-                        </div>
-                        <div class="single-contact-information-area">
-                            <div class="icon">
-                                <i class="fa-regular fa-location-dot"></i>
-                            </div>
-                            <div class="information">
-                                <h6 class="name">Address</h6>
-                                <a href="#">17782 Casper Crest, NY</a>
+                                <a href="mailto:contact@sightterp.com">contact@sightterp.com</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +230,7 @@
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="terms-of-service.html">Terms of Service</a></li>
                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="refund-policy.html">Refund Policy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -363,25 +369,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" class="contact-form-area-start">
+                    <form action="https://formsubmit.co/contact@sightterp.com" method="POST" class="contact-form-area-start">
+                        <input type="hidden" name="_next" value="http://localhost:5500/contact.html?sent=1">
+                        <input type="hidden" name="_subject" value="New Demo Request">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <div class="contact-input-half-wrapper">
                             <div class="single-input">
                                 <label for="name">Fast Name</label>
-                                <input id="name" type="text" placeholder="Willeigan">
+                                <input id="name" name="name" type="text" placeholder="Willeigan">
                             </div>
                             <div class="single-input">
                                 <label for="lname">Last Name</label>
-                                <input id="lname" type="text" placeholder="Jon">
+                                <input id="lname" name="last_name" type="text" placeholder="Jon">
                             </div>
                         </div>
                         <div class="contact-input-half-wrapper">
                             <div class="single-input">
                                 <label for="email">Email</label>
-                                <input id="email" type="text" placeholder="info@yourmail.com">
+                                <input id="email" name="email" type="text" placeholder="info@yourmail.com">
                             </div>
                             <div class="single-input">
                                 <label for="phone">Number</label>
-                                <input id="phone" type="text" placeholder="(00) 123 456 789">
+                                <input id="phone" name="phone" type="text" placeholder="(00) 123 456 789">
                             </div>
                         </div>
                         <label for="message">Message</label>
@@ -393,6 +403,24 @@
         </div>
     </div>
     <!-- request demo modal end -->
+
+    <!-- submission success modal -->
+    <div class="modal fade" id="submissionSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thank you!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your message has been submitted successfully. We will contact you soon.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="rts-btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- rts backto top start -->
     <div class="progress-wrap">

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sight-Terp Assist Setup Guide - Complete guide for setting up real-time speech-to-text for conference interpreting">
+    <title>Sight-Terp Assist Setup Guide</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <link rel="stylesheet preload" href="assets/css/plugins/plugins.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+    <style>
+        /* Custom styles for setup guide */
+        .setup-guide-page {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .setup-header {
+            background: linear-gradient(135deg, #132f47f5 0%, #1f4e72fc 50%, #3a8fb7ed 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 60px;
+        }
+        
+        .setup-header h1 {
+            margin: 0;
+            color: white;
+            font-size: 3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .setup-header p {
+            margin: 0;
+            color: white;
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .setup-nav {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(21, 87, 140, 0.1);
+        }
+        
+        .setup-nav h3 {
+            margin-top: 0;
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .setup-nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .setup-nav li {
+            margin: 0;
+        }
+        
+        .setup-nav a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .setup-nav a:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+        
+        .setup-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(21, 87, 140, 0.1);
+        }
+        
+        .setup-section h2 {
+            color: var(--color-primary);
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        
+        .setup-section h3 {
+            color: #333;
+            margin-top: 40px;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        
+        .setup-section h4 {
+            color: #555;
+            margin-top: 30px;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .setup-note {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+            border-left: 4px solid var(--color-primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(21, 87, 140, 0.1);
+        }
+        
+        .setup-warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #fffbf0 100%);
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 193, 7, 0.2);
+        }
+        
+        .setup-success {
+            background: linear-gradient(135deg, #d4edda 0%, #f0fff4 100%);
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
+        }
+        
+        .equipment-list {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 1px solid rgba(21, 87, 140, 0.1);
+        }
+        
+        .equipment-list h4 {
+            margin-top: 0;
+            color: var(--color-primary);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .equipment-list ul {
+            margin: 15px 0;
+        }
+        
+        .equipment-list li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+        
+        .setup-step {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--color-primary);
+            box-shadow: 0 2px 10px rgba(21, 87, 140, 0.1);
+        }
+        
+        .setup-step h4 {
+            margin-top: 0;
+            color: var(--color-primary);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .setup-step ol {
+            margin: 15px 0;
+        }
+        
+        .setup-step li {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+        
+        .troubleshooting {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            border: 1px solid #fed7d7;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(229, 62, 62, 0.1);
+        }
+        
+        .troubleshooting h4 {
+            color: #e53e3e;
+            margin-top: 0;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .setup-code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .setup-highlight {
+            background: var(--color-primary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .setup-footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+            background: white;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .setup-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .setup-header p {
+                font-size: 1.1em;
+            }
+            
+            .setup-section {
+                padding: 25px;
+            }
+            
+            .setup-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .setup-nav a {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .setup-header {
+                padding: 60px 0;
+            }
+            
+            .setup-header h1 {
+                font-size: 1.8em;
+            }
+            
+            .setup-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="setup-guide-page">
+    <div class="loader-wrapper">
+        <div class="loader">
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <header class="header-one bg-white header--sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-main-wrapper-area">
+                        <div class="logo-nav-area">
+                            <a href="index.html" class="logo">
+                                <img src="https://cihanunlu.com/sightterp/logo-01.png" alt="Logo_main">
+                            </a>
+                            <div class="nav-area">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="feature.html">Features</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-action-right g-25">
+                            <div class="button-wrapper g-10">
+                                <a href="https://login.sightterp.net" class="rts-btn btn-primary">Try For Free</a>
+                                <div class="menu-btn" id="menu-btn">
+                                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                                        <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                                        <rect width="20" height="2" fill="#1F1F25"></rect>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container pt--100">
+        <div class="setup-header">
+            <h1>Sight-Terp Assist Setup Guide</h1>
+            <p>Complete guide for setting up real-time speech-to-text for conference interpreting</p>
+        </div>
+
+        <div class="setup-nav">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#onsite">On-site/Hybrid Meetings</a></li>
+                <li><a href="#remote">Remote Meetings</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#contact">Support</a></li>
+            </ul>
+        </div>
+
+        <div class="setup-section" id="onsite">
+            <h2>On-site/Hybrid Meetings</h2>
+            
+            <p>For on-site interpreting with professional interpreting consoles (like Bosch), you'll need to connect your device to the console's audio output. This setup allows Sight-Terp Assist to capture the source audio for real-time speech recognition.</p>
+
+            <div class="setup-note">
+                <strong>Note:</strong> Physical cables are necessary for on-site meetings. Investing in the recommended cables and learning proper connections will be worthwhile for professional interpreting work.
+            </div>
+
+            <h3>Recommended Setup: Mac/PC + JOYO Mixer</h3>
+            
+            <div class="equipment-list">
+                <h4>Required Equipment:</h4>
+                <ul>
+                    <li>UGREEN male-to-male audio AUX cable (3.5mm)</li>
+                    <li>Amazon Basics Gold Plated 6.35mm to 3.5mm adapter</li>
+                    <li>JOYO Momix Cab internal recording audio mixer</li>
+                    <li>USB-C to USB-C cable (included with JOYO mixer)</li>
+                </ul>
+            </div>
+
+            <div class="setup-step">
+                <h4>Connection Steps:</h4>
+                <ol>
+                    <li>Connect one end of the UGREEN audio cable to your interpreting console's headphone port</li>
+                    <li>Connect the other end to the 6.35mm Audio Jack Adapter</li>
+                    <li>Plug the adapter into the 6.35mm female port of the JOYO mixer</li>
+                    <li>Connect the mixer to your computer using the USB-C to USB-C cable</li>
+                    <li>Insert your headphones into the mixer and adjust volume using the side buttons</li>
+                    <li>In Sight-Terp Assist, refresh the device list and select "Momix Cab" as the audio source</li>
+                </ol>
+            </div>
+
+            <div class="setup-success">
+                <strong>Why JOYO Mixer?</strong>
+                <ul>
+                    <li>Portable and high-fidelity at a good price</li>
+                    <li>No interference when connected to power source</li>
+                    <li>USB-powered - won't lower headphone volume</li>
+                    <li>Excellent acoustic shock protection</li>
+                    <li>Easy volume adjustment with dedicated buttons</li>
+                    <li>Converts mono channels to stereo for older consoles</li>
+                </ul>
+            </div>
+
+            <h3>Alternative Device Setups</h3>
+
+            <h4>iPad (Type-C Port)</h4>
+            <div class="equipment-list">
+                <h4>Required Equipment:</h4>
+                <ul>
+                    <li>Amazon Basics Gold Plated 6.35mm to 3.5mm adapter</li>
+                    <li>UGREEN male-to-male audio AUX cable</li>
+                    <li>Rode SC4 adapter</li>
+                    <li>Belkin USB-C to 3.5mm headset and charger adapter</li>
+                </ul>
+            </div>
+
+            <div class="setup-step">
+                <h4>Connection Steps:</h4>
+                <ol>
+                    <li>Connect UGREEN cable to 6.5mm to 3.5mm adapter</li>
+                    <li>Plug adapter into Bosch console's 6.5mm port</li>
+                    <li>Connect other end of UGREEN cable to Rode SC4 (black port)</li>
+                    <li>Plug Rode SC4 TRRS end into Belkin adapter's headset jack</li>
+                    <li>Connect USB-C end to your iPad</li>
+                    <li>Disable "Hey Siri" function on your iPad</li>
+                </ol>
+            </div>
+
+            <h4>iPad (Lightning Port)</h4>
+            <div class="equipment-list">
+                <h4>Required Equipment:</h4>
+                <ul>
+                    <li>Amazon Basics Gold Plated 6.35mm to 3.5mm adapter</li>
+                    <li>UGREEN male-to-male audio AUX cable</li>
+                    <li>Rode SC4 adapter</li>
+                    <li>Belkin RockStar Lightning to 3.5mm Audio Cable + Audio Charger Splitter</li>
+                </ul>
+            </div>
+
+            <div class="setup-step">
+                <h4>Connection Steps:</h4>
+                <ol>
+                    <li>Follow same steps as Type-C iPad setup</li>
+                    <li>Use Belkin Lightning adapter instead of USB-C adapter</li>
+                    <li>Connect lightning connector to iPad's lightning port</li>
+                    <li>Ensure "Hey Siri" is disabled</li>
+                </ol>
+            </div>
+
+            <h4>iPhone (Lightning Port)</h4>
+            <div class="equipment-list">
+                <h4>Required Equipment:</h4>
+                <ul>
+                    <li>Amazon Basics Gold Plated 6.35mm to 3.5mm adapter</li>
+                    <li>UGREEN male-to-male audio AUX cable</li>
+                    <li>Rode SC4 adapter</li>
+                    <li>Belkin RockStar Lightning to 3.5mm Audio Cable + Audio Charger Splitter</li>
+                </ul>
+            </div>
+
+            <div class="setup-step">
+                <h4>Connection Steps:</h4>
+                <ol>
+                    <li>Same setup as Lightning iPad</li>
+                    <li>Disable "Hey Siri" function</li>
+                    <li>System should automatically source audio from connection</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="remote">
+            <h2>Remote Meetings</h2>
+            
+            <p>For remote interpreting, you'll need to capture system audio from your computer. This allows Sight-Terp Assist to process the audio from your video conferencing software.</p>
+
+            <h3>Mac Setup</h3>
+
+            <h4>Macs with Apple Chip (M1/M2/M3)</h4>
+            <div class="setup-step">
+                <h4>Best Solution - System Audio Capture:</h4>
+                <ol>
+                    <li>Download the desktop version of Sight-Terp Assist</li>
+                    <li>Click the microphone button in the bottom left</li>
+                    <li>Select "System Audio" as the input source</li>
+                    <li>You're all set!</li>
+                </ol>
+            </div>
+
+            <h4>Macs with Intel Chip</h4>
+            <div class="setup-step">
+                <h4>Software Solution:</h4>
+                <ol>
+                    <li>Download and install Sight-Terp Audio Driver (free)</li>
+                    <li>Setup Multi-output Device in Audio MIDI Setup</li>
+                    <li>Select Multi-output Device as system audio output</li>
+                    <li>Select Sight-TerpVirtualCable 2ch as input device in browser settings</li>
+                    <li>Open Sight-Terp Volume Controller to adjust system audio volume</li>
+                </ol>
+            </div>
+
+            <div class="setup-note">
+                <strong>Note:</strong> When installing, macOS may show security prompts. Refer to Apple's instructions on "Safely open apps on your Mac" to complete installation.
+            </div>
+
+            <h4>Hardware Approach for Mac (Advanced Users)</h4>
+            
+            <div class="setup-step">
+                <h4>For USB Microphones or Laptop Microphones:</h4>
+                <div class="equipment-list">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>TRS splitter</li>
+                        <li>TRS audio cable</li>
+                        <li>USB adapter</li>
+                    </ul>
+                </div>
+                <ol>
+                    <li>Plug TRS splitter into computer's speaker output port</li>
+                    <li>Connect headphones to one female port of splitter</li>
+                    <li>Connect other female port with TRS audio cable</li>
+                    <li>Plug TRS cable into USB adapter's microphone port</li>
+                    <li>Insert USB adapter into computer's USB port</li>
+                    <li>In Sight-Terp Assist, select USB adapter as audio input source</li>
+                    <li>Test headphones and microphone in your video conferencing software</li>
+                </ol>
+            </div>
+
+            <div class="setup-step">
+                <h4>For Headsets or Standalone 3.5mm Microphones:</h4>
+                <div class="equipment-list">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>TRRS splitter (if computer has integrated audio port)</li>
+                        <li>TRS splitter</li>
+                        <li>TRS audio cable</li>
+                        <li>USB adapter</li>
+                    </ul>
+                </div>
+                <ol>
+                    <li>If computer has integrated audio port, plug TRRS splitter first</li>
+                    <li>Plug TRS splitter into TRRS splitter's headphone port</li>
+                    <li>Follow steps from previous setup</li>
+                    <li>Ensure computer picks up voice from microphone through TRRS splitter</li>
+                </ol>
+            </div>
+
+            <h3>Windows PC Setup</h3>
+
+            <h4>Recommended Solution - System Audio</h4>
+            <div class="setup-step">
+                <h4>Direct System Audio Capture:</h4>
+                <ol>
+                    <li>Download the desktop version of Sight-Terp Assist</li>
+                    <li>Click the microphone button</li>
+                    <li>Select "System Audio" as the input source</li>
+                    <li>You're all set!</li>
+                </ol>
+            </div>
+
+            <h4>Realtek Sound Card Setup</h4>
+            <div class="setup-step">
+                <h4>For PCs with Realtek Sound Cards:</h4>
+                <ol>
+                    <li>Go to Windows Start Menu > PC Settings > System > Sound > Sound control panel</li>
+                    <li>Or press Windows Key + R, input "mmsys.cpl sounds" then press Enter</li>
+                    <li>In Playback tab, select "Speakers (Realtek Audio)" as default playback device</li>
+                    <li>Select this device as audio output on your meeting platform</li>
+                    <li>Go to Recording tab, right-click empty space and select "Show Disabled Devices"</li>
+                    <li>Right-click and enable "Stereo Mix (Realtek Audio)"</li>
+                    <li>Double-check microphone is selected as default device</li>
+                    <li>In Sight-Terp Assist, select "Stereo Mix (Realtek Audio)" as audio source</li>
+                </ol>
+            </div>
+
+            <h4>VB-Cable Solution</h4>
+            <div class="setup-step">
+                <h4>Alternative Software Solution:</h4>
+                <div class="equipment-list">
+                    <h4>Required Software:</h4>
+                    <ul>
+                        <li>VB-Cable (free)</li>
+                        <li>Audio Repeater Pro (paid with free trial)</li>
+                    </ul>
+                </div>
+                <ol>
+                    <li>Download and install VB-Cable and Audio Repeater Pro</li>
+                    <li>Right-click VB-Cable installer > Run as administrator</li>
+                    <li>Restart your computer</li>
+                    <li>Select personal headphones as system audio output device</li>
+                    <li>Open Audio Repeater Pro</li>
+                    <li>Select personal headphones as Input Device (Wave in)</li>
+                    <li>Select Cable Input (VB-Audio Virtual Cable) as Output Device (Wave out)</li>
+                    <li>Click "Start" to send audio into virtual cable</li>
+                    <li>In Sight-Terp Assist, select "Cable Output (VB-Audio Virtual Cable)" as audio source</li>
+                </ol>
+            </div>
+
+            <div class="setup-warning">
+                <strong>Note:</strong> The free version of Audio Repeater Pro has periodic silence. Try it first before purchasing.
+            </div>
+
+            <h4>Hardware Approach for PC</h4>
+            <div class="setup-step">
+                <h4>For Standalone Microphones:</h4>
+                <div class="equipment-list">
+                    <h4>Required Equipment:</h4>
+                    <ul>
+                        <li>TRS splitter</li>
+                        <li>TRS audio cable</li>
+                        <li>USB adapter</li>
+                    </ul>
+                </div>
+                <ol>
+                    <li>Plug TRS splitter into computer's speaker output port</li>
+                    <li>Connect headphones to one female port</li>
+                    <li>Connect other female port with TRS audio cable</li>
+                    <li>Plug TRS cable into USB adapter's microphone port</li>
+                    <li>Insert USB adapter into computer's USB port</li>
+                    <li>Select USB adapter as audio input source in Sight-Terp Assist</li>
+                    <li>Test headphones and microphone in video conferencing software</li>
+                </ol>
+            </div>
+
+            <h3>Second Device Setup</h3>
+            <p>Using Sight-Terp Assist on a second device is great for separating tasks. You can interpret on your main computer and use Sight-Terp Assist on a tablet or second computer.</p>
+            
+            <div class="setup-step">
+                <h4>Setup Steps:</h4>
+                <ol>
+                    <li>Use a TRS splitter to send audio to both headphones and second device</li>
+                    <li>Follow the on-site meeting connection method for your second device</li>
+                    <li>This allows you to use touch features and handwriting on tablets</li>
+                    <li>Keep your main computer focused on the virtual meeting</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="setup-section" id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            
+            <div class="troubleshooting">
+                <h4>Common Issues and Solutions</h4>
+                
+                <h4>No Audio Detected</h4>
+                <ul>
+                    <li>Check all cable connections are secure</li>
+                    <li>Verify audio source is selected correctly in Sight-Terp Assist</li>
+                    <li>Test audio output from your interpreting console</li>
+                    <li>Try refreshing the device list in Sight-Terp Assist</li>
+                </ul>
+                
+                <h4>Low Volume After Connection</h4>
+                <ul>
+                    <li>This is normal - audio signal is split into two channels</li>
+                    <li>Turn up volume on your console</li>
+                    <li>Ask technician to increase volume from stage audio mixer</li>
+                    <li>Remind speakers to speak closer to microphones</li>
+                </ul>
+                
+                <h4>Audio Quality Issues</h4>
+                <ul>
+                    <li>Check for loose connections</li>
+                    <li>Try different audio cables</li>
+                    <li>Ensure proper grounding (especially with JOYO mixer)</li>
+                    <li>Check for interference from other devices</li>
+                </ul>
+                
+                <h4>Software Issues</h4>
+                <ul>
+                    <li>Restart Sight-Terp Assist</li>
+                    <li>Refresh the webpage if using browser version</li>
+                    <li>Reboot your device</li>
+                    <li>Check system audio permissions</li>
+                    <li>Update audio drivers</li>
+                </ul>
+            </div>
+
+            <div class="setup-note">
+                <strong>Still having issues?</strong> If problems persist after trying these solutions, please contact our support team. We're ready to provide one-on-one assistance.
+            </div>
+        </div>
+
+        <div class="setup-section" id="contact">
+            <h2>Support & Contact</h2>
+            
+            <p>Need help with your setup? Our support team is here to assist you with any technical issues or questions about Sight-Terp Assist.</p>
+            
+            <div class="equipment-list">
+                <h4>Contact Information:</h4>
+                <ul>
+                    <li><strong>Email:</strong> contact@sightterp.com</li>
+                    <li><strong>Documentation:</strong> Available in the app's help section</li>
+                    <li><strong>Response Time:</strong> We typically respond within 24 hours</li>
+                </ul>
+            </div>
+            
+            <div class="setup-success">
+                <strong>Before Contacting Support:</strong>
+                <ul>
+                    <li>Try the troubleshooting steps above</li>
+                    <li>Note your device type and operating system</li>
+                    <li>Describe the specific issue you're experiencing</li>
+                    <li>Include any error messages you've seen</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- rts footer area start -->
+    <div class="rts-footer-area footer-bg pt--110 pb--80 radious-top-left-right">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="footer-logo-area">
+                        <a href="#" class="mb--30 d-block">
+                            <img style="height: 40px; width: auto;" src="https://cihanunlu.com/sightterp/sightterptransparent.png" alt="logo">
+                        </a>
+
+                        <div class="contact-info-wrapper">
+                            <div class="single-contact-info">
+                                <div class="icon">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="information">
+                                    <h6 class="title">Mail us</h6>
+                                    <a href="mailto:contact@sightterp.com">contact@sightterp.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="usefull-link-wrapper-footer">
+                        <h5 class="title">Product</h5>
+                        <div class="list-link">
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="feature.html">Features</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="usefull-link-wrapper-footer">
+                        <h5 class="title">Support</h5>
+                        <div class="list-link">
+                            <ul>
+                                <li><a href="setup-guide.html">Setup Guide</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="refund-policy.html">Refund Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="usefull-link-wrapper-footer">
+                        <h5 class="title">Enter the fold</h5>
+                        <div class="list-link">
+                            <ul>
+                                <li><a href="#">Subscribe to our newsletter</a></li>
+                            </ul>
+                            <form action="#">
+                                <div class="input-wrapper">
+                                    <input type="email" placeholder="Enter your email..." required="">
+                                    <i class="fa-light fa-envelope"></i>
+                                </div>
+                                <button><i class="fa-regular fa-arrow-right"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts footer area end -->
+    
+    <div class="rts-copyright-area footer-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-area">
+                        <p>Copyright © 2025 Sight-Terp ©</p>
+                        <p>Developed by <a href='https://www.linkedin.com/in/cihan-%C3%BCnl%C3%BC-a82448109' target="_blank">Cihan Ünlü</a></p>
+                        <div class="right">
+                            <div class="rts-social-border-area">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="anywhere-home"></div>
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input class="search-input autocomplete ui-autocomplete-input" type="text" placeholder="Search by keyword or #" autocomplete="off">
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu" aria-label="footer_Button"><i class="far fa-times"></i></button>
+        <div class="mobile-menu-main">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Home</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="index.html">Main Home</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="feature.html" class="main">Features</a>
+                    </li>
+                    <li>
+                        <a href="pricing.html" class="main">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="setup-guide.html" class="main">Setup Guide</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="buttons-area d-flex g-5">
+                <a href="https://login.sightterp.net" class="rts-btn btn-border">Log In</a>
+                <a href="https://login.sightterp.net" class="rts-btn btn-primary">Sign Up</a>
+            </div>
+
+            <div class="rts-social-border-area right-sidebar mt--80">
+                <ul>
+                    <li><a href="#" aria-label="social link" data-description="social"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#" aria-label="social link" data-description="social"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#" aria-label="social link" data-description="social"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="#" aria-label="social link" data-description="social"><i class="fa-brands fa-pinterest"></i></a></li>
+                    <li><a href="#" aria-label="social link" data-description="social"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- mobile menu area end -->
+    </div>
+
+    <!-- rts backto top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <!-- rts backto top end -->
+
+    <script defer src="assets/js/plugins/plugins.js"></script>
+    <script defer src="assets/js/main.js"></script>
+
+</body>
+</html>
