@@ -74,11 +74,23 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-area-center">
                         <h1 class="title">Refund Policy</h1>
-                        <div class="nav">
-                            <a href="index.html" class="home">Home</a>
-                            <span></span>
-                            <a href="#" class="current">Refund Policy</a>
-                        </div>
+                        <nav aria-label="Breadcrumb">
+                            <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; padding: 0; margin: 0; display: flex; align-items: center; gap: 8px;">
+                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: inline;">
+                                    <a href="index.html" itemprop="item" class="home">
+                                        <span itemprop="name">Home</span>
+                                    </a>
+                                    <meta itemprop="position" content="1" />
+                                </li>
+                                <span></span>
+                                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display: inline;">
+                                    <a href="refund-policy.html" itemprop="item" class="current" aria-current="page">
+                                        <span itemprop="name">Refund Policy</span>
+                                    </a>
+                                    <meta itemprop="position" content="2" />
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
