@@ -1,5 +1,5 @@
 # robots.txt for Sight-Terp
-# https://www.sightterp.com/robots.txt
+# https://sightterp.com/robots.txt
 
 User-agent: *
 Allow: /
@@ -24,7 +24,7 @@ Allow: /*.svg$
 Allow: /*.webp$
 
 # Sitemap location
-Sitemap: https://www.sightterp.com/sitemap.xml
+Sitemap: https://sightterp.com/sitemap.xml
 
 # Crawl-delay (optional, adjust as needed)
 # Crawl-delay: 1

@@ -23,23 +23,21 @@ Options -Indexes
 # ============================================
 # HTTPS REDIRECT (Enable when SSL is active)
 # ============================================
-# Uncomment when you have SSL certificate installed:
-
-# RewriteEngine On
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Force HTTPS - Uncomment when SSL certificate is installed:
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ============================================
-# WWW TO NON-WWW (or vice versa)
+# WWW TO NON-WWW REDIRECT
 # ============================================
-# Choose ONE redirect pattern:
+# Redirect www to non-www (sightterp.com) - RECOMMENDED
+# This fixes SSL certificate issues when only non-www has SSL
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.sightterp\.com$ [NC]
+RewriteRule ^(.*)$ https://sightterp.com/$1 [R=301,L]
 
-# Option 1: Redirect www to non-www (sightterp.com)
-# RewriteEngine On
-# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
-# Option 2: Redirect non-www to www (www.sightterp.com)
+# Alternative: Redirect non-www to www (uncomment if you prefer www)
 # RewriteEngine On
 # RewriteCond %{HTTP_HOST} !^www\. [NC]
 # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
