@@ -1,0 +1,28 @@
+# Paddle Integration Documentation Files
+# These files contain setup guides and should not be committed
+
+QUICK_START.md
+PADDLE_PRODUCT_SETUP.md
+PADDLE_FRONTEND_SETUP.md
+NEXT_STEPS.md
+LOCALHOST_TESTING.md
+IMPLEMENTATION_SUMMARY.md
+env.template
+DEPLOYMENT_ORDER.md
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
