@@ -129,7 +129,7 @@
                                 <div class="single-check"><i class="fa-regular fa-square-check"></i><p>Dynamic Translation in ST Assist</p></div>
                                 <div class="single-check"><i class="fa-regular fa-square-check"></i><p>7/24 Support</p></div>
                             </div>
-                            <a href="https://www.sightterp.net/pricing" class="rts-btn btn-primary">
+                            <a href="https://www.sightterp.net/login" class="rts-btn btn-primary">
                                 <img src="https://cihanunlu.com/sightterp/premium-svgrepo-com%20(1).svg" alt="Basic" style="width: 20px; height: 20px; margin-right: 8px;">
                                 Start
                             </a>
@@ -665,6 +665,83 @@
                 } catch (error) {
                     console.error('Error opening Paddle checkout:', error);
                     alert('Unable to open checkout. Please try again.');
+                }
+            }
+
+            // Handle URL parameters for direct checkout links
+            // Example: https://sightterp.com/pricing.html?checkout=creditpack1
+            const urlParams = new URLSearchParams(window.location.search);
+            const checkoutParam = urlParams.get('checkout');
+
+            if (checkoutParam) {
+                // Map URL parameters to price IDs and plan names
+                const checkoutMap = {
+                    'creditpack1': {
+                        priceId: PRICE_IDS.creditPack1,
+                        planName: 'Credit Pack 1'
+                    },
+                    'creditpack2': {
+                        priceId: PRICE_IDS.creditPack2,
+                        planName: 'Credit Pack 2'
+                    },
+                    'creditpack3': {
+                        priceId: PRICE_IDS.creditPack3,
+                        planName: 'Credit Pack 3'
+                    },
+                    'creditpack4': {
+                        priceId: PRICE_IDS.creditPack4,
+                        planName: 'Credit Pack 4'
+                    },
+                    'plus': {
+                        priceId: PRICE_IDS.plus,
+                        planName: 'Plus'
+                    },
+                    'pro': {
+                        priceId: PRICE_IDS.pro,
+                        planName: 'Pro'
+                    },
+                    'elite': {
+                        priceId: PRICE_IDS.elite,
+                        planName: 'Elite'
+                    }
+                };
+
+                const checkoutInfo = checkoutMap[checkoutParam.toLowerCase()];
+
+                if (checkoutInfo && checkoutInfo.priceId) {
+                    // Wait for Paddle to fully initialize, then open checkout
+                    setTimeout(function() {
+                        // Open checkout directly with URL parameter source
+                        if (!checkoutInfo.priceId || checkoutInfo.priceId.startsWith('YOUR_')) {
+                            console.error('Price ID not configured for:', checkoutInfo.planName);
+                            alert('Checkout is not yet configured. Please contact support.');
+                            return;
+                        }
+
+                        if (typeof Paddle === 'undefined' || !Paddle.Checkout) {
+                            console.error('Paddle.Checkout is not available');
+                            alert('Payment system is not available. Please try again later.');
+                            return;
+                        }
+
+                        try {
+                            Paddle.Checkout.open({
+                                items: [{ 
+                                    priceId: checkoutInfo.priceId, 
+                                    quantity: 1 
+                                }],
+                                customData: {
+                                    plan_name: checkoutInfo.planName,
+                                    source: 'url_parameter'
+                                }
+                            });
+                        } catch (error) {
+                            console.error('Error opening Paddle checkout:', error);
+                            alert('Unable to open checkout. Please try again.');
+                        }
+                    }, 800); // Delay to ensure Paddle is ready
+                } else {
+                    console.warn('Unknown checkout parameter:', checkoutParam);
                 }
             }
 
